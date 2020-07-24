@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class ReviewFeedback extends Component {
+  onNextClick = (event) => {
+    this.props.history.push('/success');
+  };
+
   render() {
     return (
       <div>
@@ -24,7 +28,7 @@ class ReviewFeedback extends Component {
             {this.props.store.commentsReducer.commentsInput}
           </li>
         </ul>
-        <button>Submit</button>
+        <button onClick={this.onNextClick}>Submit</button>
       </div>
     );
   }
