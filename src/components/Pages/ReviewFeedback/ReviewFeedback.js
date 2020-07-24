@@ -7,7 +7,22 @@ class ReviewFeedback extends Component {
       <div>
         <h1>Review Feedback Page</h1>
         <ul>
-          <li></li>
+          <li>
+            How do you feel? {'  '}
+            {this.props.store.feelingReducer.feelingInput}
+          </li>
+          <li>
+            How well do you feel you understood content?{'  '}
+            {this.props.store.understandingReducer.understandingInput}
+          </li>
+          <li>
+            How supported do you feel?{'  '}
+            {this.props.store.supportReducer.supportInput}
+          </li>
+          <li>
+            Additional comments: {'   '}
+            {this.props.store.commentsReducer.commentsInput}
+          </li>
         </ul>
         <button>Submit</button>
       </div>
@@ -15,4 +30,6 @@ class ReviewFeedback extends Component {
   }
 }
 
-export default connect()(ReviewFeedback);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(ReviewFeedback);
