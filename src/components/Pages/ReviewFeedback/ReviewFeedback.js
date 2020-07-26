@@ -15,12 +15,11 @@ class ReviewFeedback extends Component {
       .then((response) => {
         console.log('server post: ', response.data);
         //call to GET
+        this.props.history.push('/success');
       })
       .catch((error) => {
         console.log('error during server post', error);
       });
-
-    this.props.history.push('/success');
   };
 
   render() {
