@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class HowFeeling extends Component {
   state = {
@@ -34,12 +36,16 @@ class HowFeeling extends Component {
           On a scale of 1-5, 5 being the best and 1 being the worst, how do you
           feel about today's content?
         </h3>
-        <input
+        <TextField
+          label="Enter a number"
+          id="outlined-basic"
+          variant="outlined"
           type="number"
           onChange={this.onInputChange('feelingInput')}
-          placeholder="Enter a number"
-        ></input>
-        <button onClick={this.onNextClick}>Next</button>
+        ></TextField>
+        <Button variant="contained" onClick={this.onNextClick}>
+          Next
+        </Button>
       </div>
     );
   }

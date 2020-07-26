@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
   state = {
@@ -24,12 +26,16 @@ class Comments extends Component {
       <div>
         <h1>Any comments you want to leave?</h1>
 
-        <input
+        <TextField
+          label="Enter comments"
+          id="outlined-basic"
+          variant="outlined"
           onChange={this.onInputChange('commentsInput')}
           type="text"
-          placeholder="Enter any comments"
-        ></input>
-        <button onClick={this.onNextClick}>Next</button>
+        ></TextField>
+        <Button variant="contained" onClick={this.onNextClick}>
+          Next
+        </Button>
       </div>
     );
   }

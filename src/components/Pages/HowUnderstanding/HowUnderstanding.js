@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 class HowUnderstanding extends Component {
   state = {
     understandingInput: '',
@@ -34,12 +37,16 @@ class HowUnderstanding extends Component {
           On a scale of 1-5, 5 being the best and 1 being the worst, how well do
           you feel like you understood today's content?
         </h3>
-        <input
+        <TextField
+          label="Enter a number"
+          id="outlined-basic"
+          variant="outlined"
           type="number"
           onChange={this.onInputChange('understandingInput')}
-          placeholder="Enter a number"
-        ></input>
-        <button onClick={this.onNextClick}>Next</button>
+        ></TextField>
+        <Button variant="contained" onClick={this.onNextClick}>
+          Next
+        </Button>
       </div>
     );
   }
