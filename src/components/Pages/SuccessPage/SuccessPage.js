@@ -7,7 +7,7 @@ class SuccessPage extends Component {
       <div>
         <h1>Success!</h1>
 
-        <button onClick={this.onNextClick}>Next</button>
+        <button onClick={this.onNextClick}>Leave New Feedback</button>
       </div>
     );
   }

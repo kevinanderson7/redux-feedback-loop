@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Axios from 'axios';
 
 class ReviewFeedback extends Component {
-  onNextClick = (event) => {
+  confirmFeedback = (event) => {
+    console.log('Clicking submit of data');
+    const dataForServer = {
+      feeling: this.props.store.feelingReducer.feelingInput,
+      understanding: this.props.store.understandingReducer.understandingInput,
+      support: this.props.store.supportReducer.supportInput,
+      comments: this.props.store.commentsReducer.commentsInput,
+    };
+    Axios.post('/feedback', dataForServer)
+      .then((response) => {
+        console.log('server post: ', response.data);
+        //call to GET
+      })
+      .catch((error) => {
+        console.log('error during server post', error);
+      });
+
     this.props.history.push('/success');
   };
 
@@ -28,7 +45,7 @@ class ReviewFeedback extends Component {
             {this.props.store.commentsReducer.commentsInput}
           </li>
         </ul>
-        <button onClick={this.onNextClick}>Submit</button>
+        <button onClick={this.confirmFeedback}>Submit</button>
       </div>
     );
   }
