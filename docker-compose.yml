@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   client:
     build:
@@ -44,7 +43,8 @@ services:
       NODE_ENV: ${NODE_ENV}
     volumes:
       - './server:/app-server/server'
-      - './public:app-server/public'
+      - './public:/app-server/public'
       - '/app-server/node_modules'
-    depends_on: -database
+    depends_on:
+      - database
     command: npm run server
